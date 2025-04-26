@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import ProductItems from "../../components/productItems/ProductItems";
 import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";
-import { getProduct } from "../services/api";
+import { getProducts } from "../services/api";
 import { Products } from "../../types/server";
 
 function Store() {
   const [products, setproducts] = useState<Products[]>([]);
 
   useEffect(() => {
-    getProduct().then((result) => {
+    getProducts().then((result) => {
       setproducts(result);
     });
   }, []);

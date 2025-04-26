@@ -5,8 +5,14 @@ const client = axios.create({
 })
 
 
-export async function getProduct(){
+export async function getProducts(){
   const {data} = await client("/products")
   return data
   // http://localhost:8001/products
+}
+
+export async function getProduct(id: string|number) {
+  const {data} = await client(`/products/${id}`)
+
+  return data
 }
